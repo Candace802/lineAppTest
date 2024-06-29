@@ -22,8 +22,8 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="dist/css/index.css">
     <?php 
-        $name = ""
-        $userId = ""
+        $name = "";
+        $userId = "";
     ?>
 </head>
 
