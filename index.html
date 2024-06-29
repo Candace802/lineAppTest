@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 
+    <?php 
+        $name = ""
+        $userId = ""
+    ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,6 +27,26 @@
     <meta itemprop="name" content="">
     <title></title>
     <link rel="stylesheet" type="text/css" href="dist/css/index.css">
+
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        async function main() {
+			await liff.init({ liffId: "2005729349-JArNZYW5" })
+			if (liff.isLoggedIn()) {
+				liff.getProfile()
+                    .then((profile) => {
+                        $name = profile.displayName;
+                        $userId = profile.userId;
+                        console.log($name, $userId)
+                    })
+                    .catch((err) => {
+                        console.log("error", err);
+                    });
+			}
+		}
+        main()
+    </script>
+
 </head>
 
 <body>
@@ -76,25 +101,6 @@
         </div>
     </main>
     <a href="javascript:;" class="orderBtn">我要預約</a>
-
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script>
-        async function main() {
-			await liff.init({ liffId: "2005729349-JArNZYW5" })
-			if (liff.isLoggedIn()) {
-				liff.getProfile()
-                    .then((profile) => {
-                        const name = profile.displayName;
-                        const userId = profile.userId;
-                        console.log(name, userId)
-                    })
-                    .catch((err) => {
-                        console.log("error", err);
-                    });
-			}
-		}
-        main()
-    </script>
 </body>
 
 </html>
