@@ -47,7 +47,7 @@
             <div class="num">$1,000</div>
         </div>
         <div class="form">
-            <div>
+            <div class="nameForm">
                 <label for="">姓名</label>
                 <input type="text" value="吳淑美">
             </div>
@@ -85,12 +85,17 @@
                     .then((profile) => {
                         const name = profile.displayName;
                         const userId = profile.userId;
-                        console.log(name, userId)
+                        const pictureUrl = profile.pictureUrl;
+                        $('.img img').attr('src', pictureUrl)
+                        $('.name').html(name)
+                        $('.nameForm input').attr('value', name)
                     })
                     .catch((err) => {
                         console.log("error", err);
                     });
-			}
+			}else{
+                liff.login()
+            }
 		}
         main()
     </script>
