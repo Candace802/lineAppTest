@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-
-    <?php 
-        $name = ""
-        $userId = ""
-    ?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,9 +29,9 @@
 			if (liff.isLoggedIn()) {
 				liff.getProfile()
                     .then((profile) => {
-                        $name = profile.displayName;
-                        $userId = profile.userId;
-                        console.log($name, $userId)
+                        const name = profile.displayName;
+                        const userId = profile.userId;
+                        console.log(name, userId)
                     })
                     .catch((err) => {
                         console.log("error", err);
